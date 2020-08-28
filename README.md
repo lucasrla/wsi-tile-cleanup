@@ -4,9 +4,9 @@ Simple library for detecting gibberish tiles from histopathological whole-slide 
 
 By gibberish tiles, I mean tiles with pen marks and similar artifacts:
 
-![](examples/images/tiles/3.jpeg) ![](examples/images/tiles/27.jpeg) ![](examples/images/tiles/99.jpeg) ![](examples/images/tiles/126.jpeg)
+<img src="examples/images/tiles/3.jpeg" width="100" /> <img src="examples/images/tiles/27.jpeg" width="100" /> <img src="examples/images/tiles/99.jpeg" width="100" /> <img src="examples/images/tiles/126.jpeg" width="100" /> 
 
-`wsi_tile_cleanup` detects background tiles (based on the Otsu algorithm), red/blue/green pen marks, and black artifacts.
+`wsi_tile_cleanup` detects background tiles (based on the [Otsu algorithm](https://en.wikipedia.org/wiki/Otsu%27s_method)), red/blue/green pen marks, and black artifacts.
 
 The typical use case for `wsi_tile_cleanup` is preprocessing whole-slide images (WSI) before loading tiles into a neural network (yes, deep learning). 
 
@@ -24,11 +24,12 @@ pip install git+https://github.com/lucasrla/wsi-tile-cleanup.git
 
 ```sh
 # first of all, install libvips with openslide support
-# see: https://libvips.github.io/libvips/install.html
+# https://libvips.github.io/libvips/install.html
 
-# next, create an virtualenv and activate it using your tool of choice
+# next, create a new virtualenv and activate it using your tool of choice
+# e.g. pyenv, virtualenv, etc
 
-# then, depending on what dependency manager you prefer, run either:
+# then, depending on what dependency manager you use, run either:
 poetry add git+https://github.com/lucasrla/wsi-tile-cleanup.git
 # or
 pip install git+https://github.com/lucasrla/wsi-tile-cleanup.git
