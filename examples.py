@@ -2,7 +2,7 @@ import wsi_tile_cleanup as cleanup
 
 # pen marks and black artifacts
 
-tile_path = "examples/images/tiles/3.jpeg"
+tile_path = "data/images/tiles/3.jpeg"
 print(tile_path)
 vi_tile = cleanup.read_image(tile_path)
 
@@ -20,14 +20,14 @@ print(f"blackish: {perc*100:.3f}%")
 
 # background (via otsu)
 
-wsi_path = "examples/images/wsi/TCGA-A1-A0SB-01Z-00-DX1.B34C267B-CAAA-4AB6-AD5C-276C26F997A1.svs-level=2.jpg"
+wsi_path = "data/images/wsi/TCGA-A1-A0SB-01Z-00-DX1.B34C267B-CAAA-4AB6-AD5C-276C26F997A1.svs-level=2.jpg"
 print(wsi_path)
 vi_wsi = cleanup.read_image(wsi_path)
 
 otsu = cleanup.otsu_threshold(vi_wsi)
 print(f"otsu_threshold: {otsu}")
 
-tile_bg = "examples/images/tiles/20_15.png"
+tile_bg = "data/images/tiles/20_15.png"
 print(tile_bg)
 vi_bg = cleanup.read_image(tile_bg)
 

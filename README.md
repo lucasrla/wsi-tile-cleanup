@@ -4,9 +4,9 @@ Simple library for detecting gibberish tiles from histopathological whole-slide 
 
 By gibberish tiles, I mean tiles with pen marks and similar artifacts:
 
-<img src="examples/images/tiles/3.jpeg" width="100" /> <img src="examples/images/tiles/27.jpeg" width="100" /> <img src="examples/images/tiles/99.jpeg" width="100" /> <img src="examples/images/tiles/126.jpeg" width="100" /> 
+<img src="data/images/tiles/3.jpeg" width="100" /> <img src="data/images/tiles/27.jpeg" width="100" /> <img src="data/images/tiles/99.jpeg" width="100" /> <img src="data/images/tiles/126.jpeg" width="100" /> 
 
-`wsi_tile_cleanup` detects background tiles (based on the [Otsu algorithm](https://en.wikipedia.org/wiki/Otsu%27s_method)), red/blue/green pen marks, and black artifacts.
+`wsi_tile_cleanup` detects background tiles (based on the [Otsu algorithm](https://en.wikipedia.org/wiki/Otsu%27s_method)), red/green/blue pen marks, and black artifacts.
 
 The typical use case for `wsi_tile_cleanup` is preprocessing whole-slide images (WSI) before loading tiles into a neural network (yes, deep learning). 
 
@@ -23,13 +23,14 @@ pip install git+https://github.com/lucasrla/wsi-tile-cleanup.git
 ### pip or poetry
 
 ```sh
-# first of all, install libvips with openslide support
+# first of all, install libvips 
 # https://libvips.github.io/libvips/install.html
+# (tip: have it installed with openslide support)
 
 # next, create a new virtualenv and activate it using your tool of choice
-# e.g. pyenv, virtualenv, etc
+# (e.g., pyenv, virtualenv, etc)
 
-# then, depending on what dependency manager you use, run either:
+# then, depending on your dependency manager, run either:
 poetry add git+https://github.com/lucasrla/wsi-tile-cleanup.git
 # or
 pip install git+https://github.com/lucasrla/wsi-tile-cleanup.git
@@ -40,7 +41,7 @@ pip install git+https://github.com/lucasrla/wsi-tile-cleanup.git
 ```python
 import wsi_tile_cleanup as cleanup
 
-img = cleanup.read_image("examples/images/tiles/5.jpeg")
+img = cleanup.read_image("data/images/tiles/5.jpeg")
 bands = cleanup.split_rgb(img)
 colors = ["red", "green", "blue"]
 
@@ -49,12 +50,12 @@ for color in colors:
     print(f"{color}: {perc:.5f}")
 ```
 
-For more examples, see `examples.py`.
+For more examples, see [`examples.py`](https://github.com/lucasrla/wsi-tile-cleanup/blob/master/examples.py).
 
 
 ## Credits and Acknowledgments
 
-Please note that this code is just a very thin wrapper around `libvips`, `pyvips` and `numpy`. They are the ones doing the heavy lifting (and doing it amazingly well).
+Please note that `wsi_tile_cleanup` is just a very thin wrapper around `libvips`, `pyvips` and `numpy`. They are the ones doing the heavy lifting (and doing it amazingly well).
 
 - [libvips](https://libvips.github.io/libvips/): A fast image processing library with low memory needs. Official Python biddings are called [pyvips](https://github.com/libvips/pyvips).
 
