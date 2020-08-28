@@ -1,0 +1,5 @@
+cffi==1.14.2
+numpy==1.19.1
+pkgconfig==1.5.1
+pycparser==2.20
+pyvips==2.1.12
