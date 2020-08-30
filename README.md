@@ -15,7 +15,7 @@ The typical use case for `wsi_tile_cleanup` is preprocessing whole-slide images 
 ### Conda
 
 ```sh
-conda create --name YOUR_ENV_NAME --channel conda-forge libvips pyvips numpy pip
+conda create --name YOUR_ENV_NAME --channel conda-forge python=3.6 libvips pyvips numpy
 conda activate YOUR_ENV_NAME
 pip install git+https://github.com/lucasrla/wsi-tile-cleanup.git
 ```
