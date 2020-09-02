@@ -41,18 +41,19 @@ pip install git+https://github.com/lucasrla/wsi-tile-cleanup.git
 ## Usage
 
 ```python
-import wsi_tile_cleanup as cleanup
+from wsi_tile_cleanup import filters, utils
 
-img = cleanup.read_image("data/images/tiles/5.jpeg")
-bands = cleanup.split_rgb(img)
+img = utils.read_image("data/images/tiles/5.jpeg")
+bands = utils.split_rgb(img)
+
 colors = ["red", "green", "blue"]
 
 for color in colors:
-    perc = cleanup.pen_percentage(bands, color)
+    perc = filters.pen_percentage(bands, color)
     print(f"{color}: {perc:.5f}")
 ```
 
-For more examples, see [`examples.py`](https://github.com/lucasrla/wsi-tile-cleanup/blob/master/examples.py).
+See also: [`examples.py`](https://github.com/lucasrla/wsi-tile-cleanup/blob/master/examples.py).
 
 
 ## Credits and Acknowledgments

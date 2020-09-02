@@ -1,8 +1,8 @@
 import pyvips as vips
 
 
-def read_image(image_path, discard_alpha=True, *args, **kwargs):
-    vips_image = vips.Image.new_from_file(f"{image_path}", *args, **kwargs)
+def read_image(image_path, discard_alpha=True, **kwargs):
+    vips_image = vips.Image.new_from_file(f"{image_path}", **kwargs)
     
     if discard_alpha:
         # n=3 discards alpha channel, keeping only r,g,b
