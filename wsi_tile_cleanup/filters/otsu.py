@@ -21,7 +21,7 @@ def bw_histogram(vi):
 def background_percent(vi_tile, otsu_threshold):
     np_tile_hist = bw_histogram(vi_tile)
     tissue_perc = np.sum(np_tile_hist[:otsu_threshold]) / np.sum(np_tile_hist)
-    tissue_perc = np.round(tissue_perc, decimals=5) if tissue_perc > 0 else 0
+    # tissue_perc = np.round(tissue_perc, decimals=5) if tissue_perc > 0 else 0
     return 1.0 - tissue_perc
 
 

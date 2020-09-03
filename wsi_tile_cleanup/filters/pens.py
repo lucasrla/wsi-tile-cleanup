@@ -78,6 +78,6 @@ def pen_percent(bands, pen_color):
         raise Exception(f"Error: pen_color='{pen_color}' not supported")
 
     percentage = mask.avg() / 255.0
-    percentage = np.round(percentage, decimals=5) if percentage > 0 else 0
+    # percentage = np.round(percentage, decimals=5) if percentage > 0 else 0
 
     return percentage
