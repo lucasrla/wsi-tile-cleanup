@@ -2,13 +2,16 @@
 
 Simple library for detecting gibberish tiles from histopathological whole-slide images (WSI).
 
-By gibberish tiles, I mean tiles with pen marks and similar artifacts:
+By gibberish tiles I mean tiles with pen marks and similar artifacts:
 
 <img src="data/images/tiles/3.jpeg" width="100" /> <img src="data/images/tiles/27.jpeg" width="100" /> <img src="data/images/tiles/99.jpeg" width="100" /> <img src="data/images/tiles/126.jpeg" width="100" /> 
 
-`wsi_tile_cleanup` detects background tiles (based on the [Otsu algorithm](https://en.wikipedia.org/wiki/Otsu%27s_method)), red/green/blue pen marks, and black artifacts.
+`wsi_tile_cleanup` detects background tiles (based on the [Otsu algorithm](https://en.wikipedia.org/wiki/Otsu%27s_method)), red / green / blue pen marks, and black artifacts.
 
 The typical use case for `wsi_tile_cleanup` is preprocessing whole-slide images (WSI) before loading tiles into a neural network (yes, deep learning). 
+
+If you are building a deep learning pipeline, the following repositories might be of interest: [@lucasrla/wsi-preprocessing](https://github.com/lucasrla/wsi-preprocessing) and [@lucasrla/wsi-preprocessing-sos-workflow](https://github.com/lucasrla/wsi-preprocessing-sos-workflow).
+
 
 ## Installation
 
@@ -60,7 +63,7 @@ See also: [`examples.py`](https://github.com/lucasrla/wsi-tile-cleanup/blob/mast
 
 Please note that `wsi_tile_cleanup` is just a very thin wrapper around `libvips`, `pyvips` and `numpy`. They are the ones doing the heavy lifting (and doing it amazingly well).
 
-- [libvips](https://libvips.github.io/libvips/): A fast image processing library with low memory needs. Official Python biddings are called [pyvips](https://github.com/libvips/pyvips).
+- [libvips](https://libvips.github.io/libvips/): A fast image processing library with low memory needs. The official Python bindings are called [pyvips](https://github.com/libvips/pyvips).
 
 - [NumPy](https://numpy.org): The fundamental package for scientific computing with Python.
 
